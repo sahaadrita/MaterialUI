@@ -7,22 +7,18 @@ import DeleteIcon from '@mui/icons-material/esm/Delete'
 import  CheckBox from '@mui/icons-material/esm/CheckBox'
 import FormControlLabel from '@mui/material/FormControlLabel'
 import TextField from '@mui/material/TextField'
-import {makeStyles} from '@mui/styles'
-const useStyles=makeStyles({
-  root:{
-    background: 'linear-gradient (45deg, #333, #999 )',
-    border:0,
-    borderRadius:15,
-    color:'white',
-    padding :'0 30px'
+import { Typography } from '@mui/material';
+import { ThemeProvider, createMuiTheme } from '@mui/material';
+import { orange } from '@mui/material/colors';
+ 
+const theme=createMuiTheme({
+  palette:{
+    primary:{
+      main:orange[500]
+    }
   }
-  
 })
-function ButtonStyled(){
-  const classes=useStyles();
-  return <Button className={classes.root}>Test Styled Button</Button>
 
-}
 function CheckBoxExample(){ 
   const [checked, setChecked] = React.useState(true)
   return(
@@ -41,9 +37,15 @@ function CheckBoxExample(){
     }
 function App() {
   return (
-    <div className="App">
+    <ThemeProvider theme={theme}>
+<div className="App">
       <header className="App-header">
-        <ButtonStyled/>
+        <Typography variant="h1">
+          Welcome to Material UI
+          </Typography>
+          <Typography variant="h2">
+          Learn how to use Material UI
+          </Typography>
       <TextField variant = "outlined"
         color="secondary"
         type="text"
@@ -83,6 +85,7 @@ function App() {
         
       </header>
     </div>
+    </ThemeProvider>
   );
 }
 
