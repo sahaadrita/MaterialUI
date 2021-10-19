@@ -10,14 +10,25 @@ import TextField from '@mui/material/TextField'
 import { Typography } from '@mui/material';
 import { ThemeProvider, createMuiTheme } from '@mui/material';
 import { orange } from '@mui/material/colors';
- 
+ import { Container } from '@mui/material';
+ import { Paper } from '@mui/material';
+ import { Grid } from '@mui/material';
+ import { AppBar } from '@mui/material';
+ import { Toolbar } from '@mui/material';
+ import { IconButton } from '@mui/material';
+import  MenuIcon  from '@mui/icons-material/Menu';
+import { styled } from 'styled-components';
+import { fontFamily, fontSize } from '@mui/system';
 const theme=createMuiTheme({
+  
   palette:{
     primary:{
       main:orange[500]
     }
   }
 })
+
+
 
 function CheckBoxExample(){ 
   const [checked, setChecked] = React.useState(true)
@@ -38,15 +49,46 @@ function CheckBoxExample(){
 function App() {
   return (
     <ThemeProvider theme={theme}>
+      <Container maxWidth="sm">
 <div className="App">
       <header className="App-header">
-        <Typography variant="h1">
+        <AppBar >
+          <Toolbar>
+            <IconButton
+             size="large"
+             edge="start"
+             color="inherit"
+             aria-label="menu"
+             sx={{ mr: 2 }}>
+              <MenuIcon/>
+               </IconButton>
+               <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                MUI Themeing
+               </Typography>
+               <Button color="inherit">Login</Button>
+          </Toolbar>
+          </AppBar>
+
+
+        <Typography variant="h3" color="black">
           Welcome to Material UI
           </Typography>
-          <Typography variant="h2">
+          <Typography variant="h5" color="black">
           Learn how to use Material UI
           </Typography>
+          <Grid container direction="row">
+            <Grid item xs>
+                 <Paper style={{height:75, width:100}}/>
+            </Grid>
+            <Grid item xs>
+                 <Paper style={{height:75, width:100}}/>
+            </Grid>
+            <Grid item xs>
+                 <Paper style={{height:75, width:100}}/>
+            </Grid>
+            </Grid>
       <TextField variant = "outlined"
+     
         color="secondary"
         type="text"
         label="Name"
@@ -81,10 +123,16 @@ function App() {
           Discard
         </Button>
       </ButtonGroup>
-        
+      
+        <form action="">
+          <input type="text"/>
+          <button>create</button>
+          <Button>Done</Button>
+        </form>
         
       </header>
     </div>
+    </Container>
     </ThemeProvider>
   );
 }
