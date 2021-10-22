@@ -1,5 +1,7 @@
 import React from 'react'
 import './App.css';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
+import '../node_modules/bootstrap/dist/css/bootstrap-grid.min.css'
 import ButtonGroup from '@mui/material/ButtonGroup'
 import Button from "@mui/material/Button"
 import SaveIcon from '@mui/icons-material/esm/Save'
@@ -19,6 +21,9 @@ import { orange } from '@mui/material/colors';
 import  MenuIcon  from '@mui/icons-material/Menu';
 import { styled } from 'styled-components';
 import { fontFamily, fontSize } from '@mui/system';
+import Avatar from '@mui/material/Avatar';
+import Stack from '@mui/material/Stack';
+
 const theme=createMuiTheme({
   
   palette:{
@@ -27,8 +32,14 @@ const theme=createMuiTheme({
     }
   }
 })
-
-
+    
+function ImageAvatars() {
+  return (
+    <Stack direction="row" spacing={2}>
+      <Avatar alt="LOGO" src="/static/images/avatar/1.jpg" />
+      </Stack>
+  );
+}
 
 function CheckBoxExample(){ 
   const [checked, setChecked] = React.useState(true)
@@ -62,6 +73,9 @@ function App() {
              sx={{ mr: 2 }}>
               <MenuIcon/>
                </IconButton>
+
+  
+              
                <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                 MUI Themeing
                </Typography>
